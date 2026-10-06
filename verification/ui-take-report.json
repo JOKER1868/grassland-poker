@@ -1,0 +1,10 @@
+{
+  "result": {
+    "type": "object",
+    "value": {
+      "physicalTakeTap": true,
+      "netCards": 1,
+      "preselectionPreservedAcrossBotMove": true
+    }
+  }
+}

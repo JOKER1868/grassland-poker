@@ -1,0 +1,72 @@
+{
+  "result": {
+    "type": "object",
+    "value": {
+      "mode": "duijia",
+      "players": 4,
+      "buttons": [
+        {
+          "name": "btn_buchu_node",
+          "rect": {
+            "x": 436.09999999999997,
+            "y": 220.648,
+            "width": 131.2,
+            "height": 55.10400000000001
+          }
+        },
+        {
+          "name": "btn_tisji",
+          "rect": {
+            "x": 608.3,
+            "y": 220.648,
+            "width": 131.20000000000005,
+            "height": 55.10400000000001
+          }
+        },
+        {
+          "name": "btn_chupai",
+          "rect": {
+            "x": 780.5,
+            "y": 220.648,
+            "width": 131.20000000000005,
+            "height": 55.10400000000001
+          }
+        },
+        {
+          "name": "btn_take",
+          "rect": {
+            "x": 952.6999999999999,
+            "y": 220.648,
+            "width": 131.19999999999993,
+            "height": 55.10400000000001
+          }
+        }
+      ],
+      "aligned": true,
+      "noHandOverlap": true,
+      "noRaisedHandOverlap": true,
+      "hintCards": 1,
+      "clear": true,
+      "rulesPaused": true,
+      "backTopLeft": true,
+      "homeClean": true,
+      "continuePreserved": true,
+      "worker": {
+        "worker": true,
+        "elapsedMs": 784,
+        "search": {
+          "samples": 16,
+          "steps": 6672,
+          "values": [
+            0.1875,
+            0.125,
+            0.3125,
+            0.5625,
+            -0.0625
+          ],
+          "selected": 3
+        }
+      }
+    }
+  }
+}

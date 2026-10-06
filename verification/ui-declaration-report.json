@@ -1,0 +1,22 @@
+{
+  "result": {
+    "type": "object",
+    "value": {
+      "seed": 11,
+      "claimCursor": 28,
+      "resumeCursor": 29,
+      "mainSuit": 2,
+      "noFutureAceLeak": true,
+      "noHandOverlap": true,
+      "partialDealResumed": true,
+      "fullCounts": [
+        22,
+        21,
+        21,
+        22,
+        22
+      ],
+      "counterAfterDeal": true
+    }
+  }
+}

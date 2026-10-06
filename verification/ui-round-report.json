@@ -1,0 +1,34 @@
+{
+  "result": {
+    "type": "object",
+    "value": {
+      "mode": "shangyou",
+      "players": 2,
+      "noTimeoutMs": 16000,
+      "manualActions": [
+        {
+          "take": false,
+          "count": 9
+        },
+        {
+          "pass": true
+        },
+        {
+          "take": false,
+          "count": 3
+        }
+      ],
+      "moves": 12,
+      "finished": [
+        0,
+        1
+      ],
+      "scores": [
+        1,
+        -1
+      ],
+      "errors": [],
+      "settlement": "你方获胜\n\n你：1贡 本局 +1 累计 18分 机器人1：2贡 本局 -1 累计 15分\n\n再来一局返回大厅"
+    }
+  }
+}

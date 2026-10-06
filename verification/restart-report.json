@@ -1,0 +1,25 @@
+{
+  "result": {
+    "type": "object",
+    "value": {
+      "score": {
+        "scores": [
+          18,
+          15,
+          -64,
+          15,
+          16
+        ],
+        "applied": [
+          "muwknih4-z4kf78uucye",
+          "muwknuvt-588ms008fud",
+          "muwko0ke-nfd1yl272gd",
+          "muwko5qi-3p073w2ed1p",
+          "muwkp7d5-citc2vvop1w"
+        ],
+        "rounds": 5
+      },
+      "scene": "hallScene"
+    }
+  }
+}

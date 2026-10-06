@@ -1,0 +1,40 @@
+(async()=>{
+  const wait=ms=>new Promise(r=>setTimeout(r,ms));
+  const assert=(yes,message)=>{if(!yes)throw Error(message);};
+  const g=grassland.game,ui=grassland.ui;
+  assert(g&&g.phase==='play'&&g.turn===0&&!g.over,'Human turn required');
+  const buttons=ui.playingUI_node.getComponentsInChildren(cc.Button);
+  const bounds=buttons.map(b=>({name:b.node.name,rect:b.node.getBoundingBoxToWorld()}));
+  assert(bounds.length===4,'Four action buttons');
+  const centers=bounds.map(b=>b.rect.y+b.rect.height/2);
+  assert(Math.max(...centers)-Math.min(...centers)<1,'Action buttons must align');
+  const cardBounds=ui.cards_node.map(n=>n.getBoundingBoxToWorld());
+  for(const b of bounds)for(const c of cardBounds)assert(!b.rect.intersects(c),'Action button covers hand: '+b.name);
+  const tip=document.getElementById('gl-tip').getBoundingClientRect();
+  const buttonTopCss=(grassland.room.node.height-Math.max(...bounds.map(b=>b.rect.y+b.rect.height)))*innerHeight/grassland.room.node.height;
+  assert(tip.bottom<buttonTopCss,'Instruction text overlaps action row');
+  assert(!grassland.room.node.getChildByName('goBack').active,'Old back remains visible');
+  const back=document.getElementById('gl-back').getBoundingClientRect();assert(back.left<20&&back.top<20,'Back must be top left');
+  const before=g.history.length,ids=g.hands[0].map(c=>c.id).join(',');
+  ui.onButtonClick(null,'tipcard');while(grassland.hintPending)await wait(50);
+  if(!ui.choose_card_data.length&&GrasslandCore.moves(g.hands[0],g.main,g.table).length){ui.onButtonClick(null,'tipcard');while(grassland.hintPending)await wait(50);}
+  const selected=ui.choose_card_data.map(c=>c.index);
+  assert(selected.length>0,'Hint must select an available move');
+  const selectedNodes=ui.cards_node.filter(n=>selected.includes(n.getComponent('card').caardIndex));
+  assert(selectedNodes.every(n=>n.getComponent('card').flag),'Hint selection flags');
+  const m=GrasslandCore.classify(selected.map(id=>g.hands[0].find(c=>c.id===id)),g.main);
+  assert(m&& (GrasslandCore.beats(m,g.table)||GrasslandCore.canTake(m,g.table)),'Legal hint');
+  for(const b of bounds)for(const n of selectedNodes)assert(!b.rect.intersects(n.getBoundingBoxToWorld()),'Button covers raised selected card');
+  [...document.querySelectorAll('.gl-btn')].find(b=>b.textContent==='清除').click();
+  assert(ui.choose_card_data.length===0&&ui.cards_node.every(n=>!n.getComponent('card').flag),'Clear must reset selection');
+  [...document.querySelectorAll('.gl-btn')].find(b=>b.textContent==='规则').click();
+  await wait(1200);assert(g.history.length===before&&g.hands[0].map(c=>c.id).join(',')===ids,'Rules must not advance human turn');
+  [...document.querySelectorAll('.gl-btn')].find(b=>b.textContent==='继续游戏').click();
+  assert(!grassland.dialog,'Rules close must clear modal');
+  document.getElementById('gl-back').click();await wait(800);
+  assert(document.querySelector('.gl-home'),'Back must show mode choices');
+  assert(!document.getElementById('gl-back')&&!document.getElementById('gl-bar'),'Table controls leaked into home');
+  [...document.querySelectorAll('.gl-btn')].find(b=>b.textContent==='继续上局').click();await wait(900);
+  assert(grassland.game.history.length===before&&grassland.game.hands[0].map(c=>c.id).join(',')===ids,'Continue must preserve game');
+  return {mode:g.mode,players:g.n,buttons:bounds,aligned:true,noHandOverlap:true,noRaisedHandOverlap:true,hintCards:selected.length,clear:true,rulesPaused:true,backTopLeft:true,homeClean:true,continuePreserved:true,worker:grassland.lastSearch};
+})()

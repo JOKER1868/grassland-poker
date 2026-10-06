@@ -15,6 +15,7 @@ const start = cc.Class({
     }
     !CC_EDITOR && ddzData.initData()
     !CC_EDITOR && ddzServers.initServer()
+    if (!CC_EDITOR) require('grasslandAdapter').install()
   }
 })
 module.extends = start

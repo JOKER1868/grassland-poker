@@ -12,3 +12,14 @@ temp
 library
 packages
 local
+android-shell/assets/web/
+android-shell/dist/
+verification/*.png
+verification/*.log
+__pycache__/
+*.p12
+*.jks
+*.keystore
+*.pem
+.env
+.env.*

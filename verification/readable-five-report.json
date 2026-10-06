@@ -1,0 +1,308 @@
+{
+  "viewport": [
+    760,
+    360
+  ],
+  "players": [
+    {
+      "identity": "抓方",
+      "font": 26,
+      "scoreFont": 24,
+      "role": {
+        "x": 82,
+        "y": 52.1,
+        "width": 56,
+        "height": 41.800000000000004
+      },
+      "score": {
+        "x": 58.66,
+        "y": 99.36,
+        "width": 102.68,
+        "height": 39.27999999999999
+      }
+    },
+    {
+      "identity": "身份未公开",
+      "font": 26,
+      "scoreFont": 24,
+      "role": {
+        "x": 1228,
+        "y": 277.1,
+        "width": 134,
+        "height": 41.799999999999955
+      },
+      "score": {
+        "x": 1243.66,
+        "y": 324.36,
+        "width": 102.67999999999984,
+        "height": 39.27999999999997
+      }
+    },
+    {
+      "identity": "身份未公开",
+      "font": 26,
+      "scoreFont": 24,
+      "role": {
+        "x": 1228,
+        "y": 442.1,
+        "width": 134,
+        "height": 41.799999999999955
+      },
+      "score": {
+        "x": 1243.66,
+        "y": 489.36,
+        "width": 102.67999999999984,
+        "height": 39.27999999999997
+      }
+    },
+    {
+      "identity": "身份未公开",
+      "font": 26,
+      "scoreFont": 24,
+      "role": {
+        "x": 158,
+        "y": 442.1,
+        "width": 134,
+        "height": 41.799999999999955
+      },
+      "score": {
+        "x": 173.66,
+        "y": 489.36,
+        "width": 102.68000000000004,
+        "height": 39.27999999999997
+      }
+    },
+    {
+      "identity": "主方",
+      "font": 26,
+      "scoreFont": 24,
+      "role": {
+        "x": 197,
+        "y": 277.1,
+        "width": 56,
+        "height": 41.799999999999955
+      },
+      "score": {
+        "x": 173.66,
+        "y": 324.36,
+        "width": 102.68000000000004,
+        "height": 39.27999999999997
+      }
+    }
+  ],
+  "noScoreOverlap": true,
+  "noBottomCropping": true,
+  "layout": {
+    "mode": "dadaa",
+    "players": 5,
+    "buttons": [
+      {
+        "name": "btn_buchu_node",
+        "rect": {
+          "x": 436.09999999999997,
+          "y": 220.648,
+          "width": 131.2,
+          "height": 55.10400000000001
+        }
+      },
+      {
+        "name": "btn_tisji",
+        "rect": {
+          "x": 608.3,
+          "y": 220.648,
+          "width": 131.20000000000005,
+          "height": 55.10400000000001
+        }
+      },
+      {
+        "name": "btn_chupai",
+        "rect": {
+          "x": 780.5,
+          "y": 220.648,
+          "width": 131.20000000000005,
+          "height": 55.10400000000001
+        }
+      },
+      {
+        "name": "btn_take",
+        "rect": {
+          "x": 952.6999999999999,
+          "y": 220.648,
+          "width": 131.19999999999993,
+          "height": 55.10400000000001
+        }
+      }
+    ],
+    "aligned": true,
+    "noHandOverlap": true,
+    "noRaisedHandOverlap": true,
+    "hintCards": 3,
+    "clear": true,
+    "rulesPaused": true,
+    "backTopLeft": true,
+    "homeClean": true,
+    "continuePreserved": true,
+    "worker": {
+      "worker": true,
+      "elapsedMs": 154,
+      "search": {
+        "samples": 16,
+        "steps": 10133,
+        "values": [
+          -0.0107421875,
+          0.0009765625,
+          -0.0087890625,
+          0.00390625,
+          -0.00390625
+        ],
+        "selected": 3
+      },
+      "error": null
+    }
+  },
+  "declaration": {
+    "seed": 11,
+    "claimCursor": 28,
+    "resumeCursor": 29,
+    "mainSuit": 2,
+    "noFutureAceLeak": true,
+    "noHandOverlap": true,
+    "partialDealResumed": true,
+    "fullCounts": [
+      22,
+      21,
+      21,
+      22,
+      22
+    ],
+    "counterAfterDeal": true
+  },
+  "variants": {
+    "results": [
+      {
+        "name": "打大A · 5人",
+        "players": 5,
+        "moves": 49,
+        "finalHumanCards": 0,
+        "finished": [
+          4,
+          1,
+          0,
+          2
+        ],
+        "scores": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "totals": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "settlementIdempotent": true,
+        "lastStrategy": {
+          "worker": true,
+          "elapsedMs": 8,
+          "search": null,
+          "error": null
+        }
+      },
+      {
+        "name": "打对家 · 4人",
+        "players": 4,
+        "moves": 32,
+        "finalHumanCards": 0,
+        "finished": [
+          2,
+          0
+        ],
+        "scores": [
+          1,
+          -1,
+          1,
+          -1
+        ],
+        "totals": [
+          1,
+          -1,
+          1,
+          -1,
+          0
+        ],
+        "settlementIdempotent": true,
+        "lastStrategy": {
+          "worker": true,
+          "elapsedMs": 7,
+          "search": null,
+          "error": null
+        }
+      },
+      {
+        "name": "争上游 · 3人",
+        "players": 3,
+        "moves": 19,
+        "finalHumanCards": 0,
+        "finished": [
+          0,
+          1,
+          2
+        ],
+        "scores": [
+          1,
+          0,
+          -1
+        ],
+        "totals": [
+          2,
+          -1,
+          0,
+          -1,
+          0
+        ],
+        "settlementIdempotent": true,
+        "lastStrategy": {
+          "worker": true,
+          "elapsedMs": 7,
+          "search": null,
+          "error": null
+        }
+      },
+      {
+        "name": "争上游 · 2人",
+        "players": 2,
+        "moves": 18,
+        "finalHumanCards": 6,
+        "finished": [
+          1,
+          0
+        ],
+        "scores": [
+          -1,
+          1
+        ],
+        "totals": [
+          1,
+          0,
+          0,
+          -1,
+          0
+        ],
+        "settlementIdempotent": true,
+        "lastStrategy": {
+          "worker": true,
+          "elapsedMs": 10,
+          "search": null,
+          "error": null
+        }
+      }
+    ],
+    "errors": [],
+    "aiTimerAcceleratedForTest": true
+  },
+  "errors": []
+}

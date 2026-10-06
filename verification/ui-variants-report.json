@@ -1,0 +1,124 @@
+{
+  "result": {
+    "type": "object",
+    "value": {
+      "results": [
+        {
+          "name": "打大A · 5人",
+          "players": 5,
+          "moves": 51,
+          "finalHumanCards": 1,
+          "finished": [
+            2,
+            1,
+            4,
+            3
+          ],
+          "scores": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "totals": [
+            17,
+            16,
+            -64,
+            15,
+            16
+          ],
+          "settlementIdempotent": true,
+          "lastStrategy": {
+            "worker": true,
+            "elapsedMs": 84
+          }
+        },
+        {
+          "name": "打对家 · 4人",
+          "players": 4,
+          "moves": 32,
+          "finalHumanCards": 0,
+          "finished": [
+            0,
+            2
+          ],
+          "scores": [
+            1,
+            -1,
+            1,
+            -1
+          ],
+          "totals": [
+            18,
+            15,
+            -63,
+            14,
+            16
+          ],
+          "settlementIdempotent": true,
+          "lastStrategy": {
+            "worker": true,
+            "elapsedMs": 74
+          }
+        },
+        {
+          "name": "争上游 · 3人",
+          "players": 3,
+          "moves": 26,
+          "finalHumanCards": 1,
+          "finished": [
+            2,
+            1,
+            0
+          ],
+          "scores": [
+            -1,
+            0,
+            1
+          ],
+          "totals": [
+            17,
+            15,
+            -62,
+            14,
+            16
+          ],
+          "settlementIdempotent": true,
+          "lastStrategy": {
+            "worker": true,
+            "elapsedMs": 73
+          }
+        },
+        {
+          "name": "争上游 · 2人",
+          "players": 2,
+          "moves": 17,
+          "finalHumanCards": 9,
+          "finished": [
+            1,
+            0
+          ],
+          "scores": [
+            -1,
+            1
+          ],
+          "totals": [
+            16,
+            16,
+            -62,
+            14,
+            16
+          ],
+          "settlementIdempotent": true,
+          "lastStrategy": {
+            "worker": true,
+            "elapsedMs": 75
+          }
+        }
+      ],
+      "errors": [],
+      "aiTimerAcceleratedForTest": true
+    }
+  }
+}

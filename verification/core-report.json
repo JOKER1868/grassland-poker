@@ -1,0 +1,20 @@
+{
+  "seed": 20261006,
+  "games": 100,
+  "completed": 97,
+  "moves": 2056,
+  "failures": [
+    {
+      "game": 65,
+      "error": "Cannot read properties of null (reading 'val')"
+    },
+    {
+      "game": 69,
+      "error": "Cannot read properties of null (reading 'val')"
+    },
+    {
+      "game": 86,
+      "error": "Cannot read properties of null (reading 'val')"
+    }
+  ]
+}

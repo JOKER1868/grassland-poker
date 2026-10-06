@@ -1,0 +1,34 @@
+{
+  "seed": 76123,
+  "variants": [
+    {
+      "mode": "dadaa",
+      "players": 5,
+      "games": 20,
+      "maxSteps": 146,
+      "totalMoves": 2330
+    },
+    {
+      "mode": "duijia",
+      "players": 4,
+      "games": 20,
+      "maxSteps": 112,
+      "totalMoves": 1727
+    },
+    {
+      "mode": "shangyou",
+      "players": 3,
+      "games": 20,
+      "maxSteps": 52,
+      "totalMoves": 820
+    },
+    {
+      "mode": "shangyou",
+      "players": 2,
+      "games": 20,
+      "maxSteps": 30,
+      "totalMoves": 434
+    }
+  ],
+  "rules": "confirmed invariants, not a substitute for reference-game verification"
+}

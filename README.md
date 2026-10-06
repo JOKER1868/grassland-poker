@@ -1,54 +1,51 @@
-# doudizhu-stand-alone
+# 草原牌桌
 
-[cocos官方主页](https://www.cocos.com/)
-=========================
+完全离线的 Android 扑克游戏，当前交付版本 **0.8-final**。支持打大A（5人）、打对家（4人，对面两人同队）和争上游（2/3人），内置机器人和出牌提示。
 
+- APK没有网络权限；资源、规则和策略全部内置。
+- 机器人通过本地 Web Worker 进行未知手牌抽样与对局模拟，只使用己方手牌和公开信息。
+- 支持发牌中亮A、反A、明暗独打、独立取牌按钮、自动最近队友接风。
+- 我方出牌不限时；累计积分、对局存档与继续上局；大字体与横屏界面。
 
-游戏主要的实现思路
-=========================
-- 通过数据监听实现视图自动改变，通过订阅-发布模式执行下一步逻辑。
-- 利用localStorage实现本地数据缓存
-- 通过自定义字段userId，区别玩家与机器
-- 进入游戏房间后，玩家点击准备按钮，执行发牌和抢地主逻辑，每局抢地主顺序（随机），机器是否抢地主（随机）
-- AI出牌分自己出牌和跟牌，其中出牌时，主要根据是否是地主、地主余牌数量，跟牌时，主要根据上一手的牌型，上一手的玩家是否是地主，地主余牌数量
+正式 APK 位于本仓库 [Releases](https://github.com/JOKER1868/grassland-poker/releases)，包名 `com.grassland.doudizhubase`。iOS 版本暂未制作。
 
-关于胜率
-=========================
-个人觉得斗地主游戏本身就有一定的运气成分，目前抢地主逻辑是随机的，我本人斗地主水平也一般，自测AI胜率在15%左右。
+## 构建 Android APK
 
+使用 Windows PowerShell、Node.js、JDK 17 和 Android SDK（platforms/android-35、build-tools/35.0.0）。无需安装 Cocos Creator 即可用仓库现有网页资源构建 Android 容器。
 
-游戏顺序
-=========================
-登录 -> 游戏大厅 -> 房间列表 -> 游戏房间 -> 游戏大厅
+```powershell
+./android-shell/build.ps1 -Release `
+  -Jdk 'D:\path\to\jdk-17' `
+  -Sdk 'D:\path\to\android-sdk' `
+  -Node 'D:\path\to\node.exe' `
+  -KeyStore 'D:\private\grassland-development.p12'
+```
 
-预览
-=========================
-[web-mobile](https://vyulinlin.github.io/doudizhu-stand-alone/dist/web-mobile/)
-[web-desktop](https://vyulinlin.github.io/doudizhu-stand-alone/dist/web-desktop/)
+输出 `android-shell/dist/grassland-0.8.apk`。脚本从上游 `dist/web-mobile` 准备资源，并加入可编辑的本地规则与界面模块；省略 `-Release` 会生成开发调试包。签名文件不在仓库内。签名路径不存在时会生成本地开发密钥（别名 `grassland`，开发密码 `android`）；保留同一密钥才能覆盖安装自己的旧版本。
 
-![](https://raw.githubusercontent.com/vyulinlin/doudizhu-stand-alone/master/image/hall.png)
-![](https://raw.githubusercontent.com/vyulinlin/doudizhu-stand-alone/master/image/notReady.png)
-![](https://raw.githubusercontent.com/vyulinlin/doudizhu-stand-alone/master/image/landlord.png)
-![](https://raw.githubusercontent.com/vyulinlin/doudizhu-stand-alone/master/image/lose.png)
-![](https://raw.githubusercontent.com/vyulinlin/doudizhu-stand-alone/master/image/win.png)
+修改场景或预制体时需另用对应版本的 Creator 导出网页。仓库 `project.json` 为 2.4.13，已有网页运行时为 2.3.0；这里的构建流程没有重新编译 Creator 场景。
 
-关于
-=========================
-此项目使用Cocos Creator v2.4.2 开发
- 
-计划完成单机版斗地主经典模式和癞子模式，目前只完成经典模式。
+## 代码与验证
 
-页面展示使用了作者tingshu开源的[ddz_game](https://github.com/tinyshu/ddz_game)项目的客户端部分。
+| 路径 | 内容 |
+| --- | --- |
+| `assets/scripts/grassland/grasslandCore.js` | 牌型、对局、结算与机器人搜索 |
+| `assets/scripts/grassland/grasslandAdapter.js` | 前端接入、操作、字体、存档与累计分 |
+| `assets/scripts/grassland/grasslandWorker.js` | 离线策略计算 |
+| `android-shell/` | Android 容器及构建脚本 |
+| `verification/` | 回归脚本与结果 |
+| [MIGRATION.md](MIGRATION.md) | 来源、实现、交付与已知差异 |
 
-算法部分借鉴了liyl1991开源的[landlord](https://github.com/liyl1991/landlord)项目中的AILogic.js和GameRule.js。
+```powershell
+node verification/check-declaration.cjs
+node verification/check-settlement-wind.cjs
+node verification/check-grassland.cjs
+```
 
-目前（2020-03-02）上面的两个项目还是有很多坑，不过填坑的过程也是学习的过程，感谢两位大佬的开源精神，让我可以快速开发这个单机小游戏。
+最近交付通过80局引擎对局、480个结算场景、9个接风场景、7个王组合比较场景，以及四种人数配置的界面对局检查。浏览器布局验证使用 Python Playwright 与已安装的 Edge，详见 `verification/check-readable-ui.py`。这些测试不代表机器人已达到商业版本的实力；机器人不会在使用过程中自动学习。
 
-网上看到的一个[AI算法设计思想](https://www.iteye.com/blog/programming-1491470)
+## 来源与授权
 
-<!-- 打赏作者杯咖啡 -->
-.
-=========================
-芸芸众生，相遇相识是一种缘份。如果觉得此项目对你有帮助，可以给个star，或者给个star，哈
+本项目保留上游历史与原前端资源，基于 [VYuLinLin/doudizhu-stand-alone](https://github.com/VYuLinLin/doudizhu-stand-alone) 修改。原前端来自 [tinyshu/ddz_game](https://github.com/tinyshu/ddz_game)，原算法来源为 [liyl1991/landlord](https://github.com/liyl1991/landlord)。上游说明保存在 [UPSTREAM-README.md](UPSTREAM-README.md)。
 
-<!-- <img src="" width="220" height="220" alt="赞赏码" style="float: left;"/> -->
+尚未发现上述仓库的项目级 LICENSE，不擅自为其资源或原代码添加新的开源授权。本仓库用于个人开发与备份，保留原作者与来源信息。

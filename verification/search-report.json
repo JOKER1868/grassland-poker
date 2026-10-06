@@ -1,0 +1,63 @@
+{
+  "kind": "paired identical deals, search seat rotates, other seats use prior heuristic",
+  "variants": [
+    {
+      "mode": "dadaa",
+      "players": 5,
+      "pairedDeals": 60,
+      "oldScore": -43,
+      "newScore": 21,
+      "meanDifference": 1.0666666666666667,
+      "approx95Interval": [
+        -0.2401660911389456,
+        2.373499424472279
+      ],
+      "changed": 328,
+      "searchMs": 17691
+    },
+    {
+      "mode": "duijia",
+      "players": 4,
+      "pairedDeals": 60,
+      "oldScore": -4,
+      "newScore": 13,
+      "meanDifference": 0.2833333333333333,
+      "approx95Interval": [
+        0.05466666666666661,
+        0.512
+      ],
+      "changed": 333,
+      "searchMs": 15575
+    },
+    {
+      "mode": "shangyou",
+      "players": 3,
+      "pairedDeals": 60,
+      "oldScore": 4,
+      "newScore": 30,
+      "meanDifference": 0.43333333333333335,
+      "approx95Interval": [
+        0.22831302750882082,
+        0.6383536391578459
+      ],
+      "changed": 201,
+      "searchMs": 4240
+    },
+    {
+      "mode": "shangyou",
+      "players": 2,
+      "pairedDeals": 60,
+      "oldScore": -2,
+      "newScore": 32,
+      "meanDifference": 0.5666666666666667,
+      "approx95Interval": [
+        0.3016223929248738,
+        0.8317109404084595
+      ],
+      "changed": 76,
+      "searchMs": 5992
+    }
+  ],
+  "searchCalls": 3967,
+  "maxMs": 143
+}
